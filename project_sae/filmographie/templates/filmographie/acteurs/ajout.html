@@ -1,0 +1,21 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %} Ajout d'un Acteur {% endblock %}
+{% block content %}
+<div>
+    {% if id_m != None %}
+        <h1>Veuillez ajouter une voiture : </h1>
+        <form method="post" action="/filmographie/films/traitement/{{id_m}}/">
+    
+    {% else %}
+        <h1>Mise à jour du modèle de voiture</h1>
+        <form method="post" action="/filmographie/films/updatetraitement/{{id_v}}/">
+    {% endif %}
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit" value="envoyer les données"\>
+        </form>        
+</div>
+{% endblock %}
+
+    

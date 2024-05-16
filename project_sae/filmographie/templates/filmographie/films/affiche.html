@@ -1,0 +1,26 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %} Affichage Films {% endblock %}
+
+{% block content %} 
+<div>
+    <a href="/filmographie/acteurs/">Home</a> <a href="/voiture/ajoutvoiture/{{Marques.id}}">ajouter </a> 
+    <h1> {{Marques.nom}}</h1>
+    <p> {{marque.description}} </p>
+
+
+    <p>Voici le film {{film.id}} avec  comme l'id : {{film.titre}}. </p>
+
+    <p>Voici la liste des modèles appartenant à {{Films.titre}} : 
+        {% for v in liste %}
+            <li> 
+                {{v}}
+                <a href="/voiture/updatevoiture/{{v.id}}">Modifier le modèle</a>
+                <a href="/voiture/affichevoiture/{{v.id}}/">Afficher le modèle</a>
+                <a href="/voiture/deletevoiture/{{v.id}}/">Supprimer le modèle</a>
+            </li>
+        {% endfor %}
+    </p>
+</div>
+{% endblock %}
+

@@ -1,0 +1,14 @@
+{% extends 'project/main.html' %}          
+
+{% block title %} {{Voitures.modele}} {% endblock %}
+
+            
+
+{% block content %}   
+<div>     
+    <a href="/filmographie/">&nbsp;Page d'accueil</a>
+    <h1>{{Voitures.modele}}</h1>
+    <p>La voiture {{Voitures.modele}} est équipée d'un moteur {{Voitures.moteur}} avec une puissance 
+        de {{Voitures.puissance}} chevaux de la marque {{Voitures.Marques}}</p>
+</div>
+{% endblock %}

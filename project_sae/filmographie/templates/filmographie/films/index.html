@@ -1,8 +1,27 @@
 {% extends 'filmographie/main.html' %}
 
+{% block title %} Films {% endblock %}
+
 {% block content %}
-<h1>Films</h1>
+<div>
 
-<p>AKIF NTM</p>
+    <h1>Films</h1>
 
+    <a href="/filmographie/acteurs/"> Liste des modèles des acteurs</a>
+    <h1>Bienvenue sur la liste des FILMS</h1>
+    <p>Si vous souhaitez ajouter un film cliquer sur le bouton suivant :
+        <a href="/filmographie/ajout"> Ajouter un acteur</a>
+    </p>
+    <ol>
+        {% for v in liste %}
+            <li>
+                {{v}}
+                <a href="update/{{v.id}}">Modifier l'acteur'</a>
+                <a href="affiche/{{v.id}}/">Afficher l'acteur</a>
+                <a href="delete/{{v.id}}/">Supprimer l'acteur</a>
+            </li>
+        {% endfor %}
+    </ol>
+
+</div>
 {% endblock %}

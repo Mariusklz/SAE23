@@ -15,9 +15,9 @@ urlpatterns = [
 
     #URLS Acteur
     path('acteurs/', views_acteurs.index),
-    path('ajout/', views_acteurs.ajout),
-    path('traitement/', views_acteurs.traitement),
-    path('affiche/<int:id>/', views_acteurs.affiche),
+    path('acteurs/ajout/', views_acteurs.ajout),
+    path('acteurs/traitement/', views_acteurs.traitement),
+    path('acteurs/affiche/<int:id>/', views_acteurs.affiche),
 #    path('update/<int:id>/',views_films.update),
 #    path('updatetraitement/<int:id>/',views_films.updatetraitement),
 #    path('delete/<int:id>/', views_films.delete),
