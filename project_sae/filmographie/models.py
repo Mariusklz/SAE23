@@ -9,7 +9,7 @@ class Films(models.Model):
            MaxValueValidator(9999)  
         ] 
     )
-    affiche = photos = models.ImageField(upload_to='affiches/')
+    affiche = models.ImageField(upload_to='affiches/')
     realisateur = models.CharField(max_length=100)
     categorie = models.CharField(max_length=100)
 

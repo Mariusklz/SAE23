@@ -1,4 +1,24 @@
 from django.urls import path
-from . import views
+from . import views_films, views_acteurs
 
 
+urlpatterns = [
+    #URLS Films
+    path('', views_films.index),
+    path('ajout/',views_films.ajout),
+    path('traitement/', views_films.traitement),
+    path('affiche/<int:id>/',views_films.affiche),
+#    path('update/<int:id>/',views_films.update),
+#    path('updatetraitement/<int:id>/',views_films.updatetraitement),
+#    path('delete/<int:id>/', views_films.delete),
+
+
+    #URLS Acteur
+    path('acteurs/', views_acteurs.index),
+    path('ajout/', views_acteurs.ajout),
+    path('traitement/', views_acteurs.traitement),
+    path('affiche/<int:id>/', views_acteurs.affiche),
+#    path('update/<int:id>/',views_films.update),
+#    path('updatetraitement/<int:id>/',views_films.updatetraitement),
+#    path('delete/<int:id>/', views_films.delete),
+]
