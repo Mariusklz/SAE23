@@ -8,13 +8,13 @@ def index(request):
     return render(request, "filmographie/films/index.html" )
 
 
-def ajout(request, id):
+def ajout(request):
     if request.method == "POST":
         form = FilmsForm(request.POST)
-        return render(request,"filmographie/films/ajout.html",{"form": form, "id_a": id})
+        return render(request,"filmographie/films/ajout.html",{"form": form})
     else :
         form = FilmsForm()
-    return render(request,"filmographie/films/ajout.html",{"form" : form, "id_a": id})
+    return render(request,"filmographie/films/ajout.html",{"form" : form})
 
 def traitement(request):
     lform = FilmsForm(request.POST)
@@ -31,7 +31,7 @@ def affiche(request, id):
 def update(request, id):
     film = models.Films.objects.get(pk=id)
     form = FilmsForm(film.catalogue())
-    return render(request,"filmographie/films/ajout.html",{"form":form, "id_f": id})
+    return render(request,"filmographie/films/ajout.html",{"form":form, "id": id})
 
 
 def delete(request, id):

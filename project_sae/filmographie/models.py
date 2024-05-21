@@ -12,7 +12,6 @@ class Films(models.Model):
     affiche = models.ImageField(upload_to='affiches/', default=None, null = True, blank = True)
     realisateur = models.CharField(max_length=100)
     categorie = models.CharField(max_length=100)
-    acteur = models.ForeignKey("acteur", on_delete=models.CASCADE, default=None)
 
     def __str__(self):
         chaine = f"Le Film {self.titre} est sortie en {self.annee_de_sortie} réalisé par {self.realisateur} de la catégorie {self.categorie}.{self.affiche}"
