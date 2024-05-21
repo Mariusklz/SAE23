@@ -7,22 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>Personnes et Catégories</title>
+    <title>Catégories</title>
 </head>
 <body>
     <img class="personne" src="{% static 'img/personne.jpg' %}">
     <img class="personned" src="{% static 'img/personneHomme.jpg' %}">
     <div class="container">
-        <h1>Personnes et Catégories</h1>
-
-        <!-- Formulaire pour ajouter une catégorie -->
-        <h2>Ajouter une Catégorie</h2>
-        <form method="post" action="{% url 'index' %}">
-            {% csrf_token %}
-            {{ categorie_form.as_p }}
-            <button type="submit" name="ajouter_categorie">Sauvegarder</button>
-        </form>
-
+        <h1>Personnes </h1>
         <!-- Formulaire pour ajouter un boxeur -->
         <h2>Ajouter une personne</h2>
         <form method="post" action="{% url 'index' %}">
@@ -31,19 +22,7 @@
             <button type="submit" name="ajouter_personne">Sauvegarder</button>
         </form>
 
-        <!-- Liste des catégories -->
-        <h2>Liste des Catégories</h2>
-        <ul>
-            {% for categorie in categories %}
-                <li>
-                    {{ categorie.nom }}
-                    <a href="{% url 'modifier_categorie' categorie.id %}">Modifier</a>
-                    <a href="{% url 'supprimer_categorie' categorie.id %}">Supprimer</a>
-                </li>
-            {% endfor %}
-        </ul>
-
-        <!-- Liste des boxeurs -->
+        <!-- Liste des personnes -->
         <h2>Liste des personnes</h2>
         <ul>
             {% for p in personnes %}

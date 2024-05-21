@@ -1,0 +1,39 @@
+<!-- templates/boxeurs/index.html -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Personnes et Catégories</title>
+</head>
+<body>
+    <img class="bdf" src="{% static 'img/bdf.jpg' %}">
+    <img class="cam" src="{% static 'img/cam.jpg' %}">
+    <div class="container">
+        <h1><u>Catégories</u></h1>
+
+        <!-- Formulaire pour ajouter une catégorie -->
+        <h2>Ajouter une Catégorie</h2>
+        <form method="post" action="{% url 'index' %}">
+            {% csrf_token %}
+            {{ categorie_form.as_p }}
+            <button type="submit" name="ajouter_categorie">Sauvegarder</button>
+        </form>
+
+        <!-- Liste des catégories -->
+        <h2>Liste des Catégories</h2>
+        <ul>
+            {% for categorie in categories %}
+                <li>
+                    {{ categorie.nom }}
+                    <a href="{% url 'modifier_categorie' categorie.id %}">Modifier</a>
+                    <a href="{% url 'supprimer_categorie' categorie.id %}">Supprimer</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

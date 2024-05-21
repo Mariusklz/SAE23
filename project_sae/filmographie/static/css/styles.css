@@ -97,3 +97,19 @@ img.personned {
     top: 0;
     height: 300px;
 }
+
+img.cam {
+    position: absolute;
+    padding: 25px; 
+    right: 0;
+    top: 0;
+    height: 25%;
+}
+
+img.bdf{
+    position: absolute;
+    padding: 25px; 
+    left: 0;
+    top: 0;
+    height: 30%;
+}

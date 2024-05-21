@@ -2,9 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Personne, Categorie
 from .forms import PersonneForm, CategorieForm
 
-def index(request):
+def index_categorie(request):
     categorie_form = CategorieForm()
-    personne_form = PersonneForm()
 
     if request.method == 'POST':
         if 'ajouter_categorie' in request.POST:
@@ -12,19 +11,28 @@ def index(request):
             if categorie_form.is_valid():
                 categorie_form.save()
                 return redirect('index')
-        elif 'ajouter_personne' in request.POST:
+
+    categories = Categorie.objects.all()
+
+    return render(request, 'filmographie/categorie/index.html', {
+        'categorie_form': categorie_form,
+        'categories': categories,
+    })
+
+def index_personne(request):
+    personne_form = PersonneForm()
+
+    if request.method == 'POST':
+        if 'ajouter_personne' in request.POST:
             personne_form = PersonneForm(request.POST)
             if personne_form.is_valid():
                 personne_form.save()
                 return redirect('index')
 
-    categories = Categorie.objects.all()
     personnes = Personne.objects.all()
 
-    return render(request, 'filmographie/index.html', {
-        'categorie_form': categorie_form,
+    return render(request, 'filmographie/personnes/index.html', {
         'personne_form': personne_form,
-        'categories': categories,
         'personnes': personnes,
     })
 
@@ -37,14 +45,14 @@ def modifier_categorie(request, id):
             return redirect('index')
     else:
         form = CategorieForm(instance=categorie)
-    return render(request, 'filmographie/modifier_categorie.html', {'form': form})
+    return render(request, 'filmographie/categorie/modifier_categorie.html', {'form': form})
 
 def supprimer_categorie(request, id):
     categorie = get_object_or_404(Categorie, id=id)
     if request.method == 'POST':
         categorie.delete()
         return redirect('index')
-    return render(request, 'filmographie/supprimer_categorie.html', {'categorie': categorie})
+    return render(request, 'filmographie/categorie/supprimer_categorie.html', {'categorie': categorie})
 
 def modifier_personne(request, id):
     personne = get_object_or_404(Personne, id=id)
@@ -55,11 +63,11 @@ def modifier_personne(request, id):
             return redirect('index')
     else:
         form = Personne(instance=personne)
-    return render(request, 'filmographie/modifier_personne.html', {'form': form})
+    return render(request, 'filmographie/personnes/modifier_personne.html', {'form': form})
 
 def supprimer_personne(request, id):
     personne = get_object_or_404(Personne, id=id)
     if request.method == 'POST':
         personne.delete()
         return redirect('index')
-    return render(request, 'filmographie/supprimer_filmographie.html', {'personne': personne})
+    return render(request, 'filmographie/personnes/supprimer_filmographie.html', {'personne': personne})
