@@ -1,23 +1,22 @@
 from django.forms import ModelForm
 from django.utils.translation import gettext_lazy as _
-from .models import Films, Acteurs
+from .models import Film, Acteur
 
-class FilmsForm(ModelForm):
+class FilmForm(ModelForm):
     class Meta:
-        model = Films
-        fields = ('titre', 'annee_de_sortie', 'affiche', 'realisateur', 'categorie')
+        model = Film
+        fields = ('titre', 'annee_de_sortie', 'affiche', 'realisateur')
         labels = {
             'titre': _('Titre du Film'),
             'annee_de_sortie': _('Année de sortie du Film'),
             'realisateur': _('Réalisateur du Film'),
-            'categorie': _('Catégorie du Film'),
             'affiche': _('Affiche du Film'),
         }
 
 
-class ActeursForm(ModelForm):
+class ActeurForm(ModelForm):
     class Meta:
-        model = Acteurs
+        model = Acteur
         fields = ('nom', 'prenom', 'age', 'photos')
         labels = {
             'nom': _("Nom de l'Acteur"),

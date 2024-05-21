@@ -13,12 +13,12 @@
         <a href="/filmographie/ajout"> Ajouter un film</a>
     </p>
     <ol>
-        {% for v in liste %}
+        {% for l in liste %}
             <li>
-                {{v}}
-                <a href="update/{{v.id}}">Modifier l'acteur'</a>
-                <a href="affiche/{{v.id}}/">Afficher l'acteur</a>
-                <a href="delete/{{v.id}}/">Supprimer l'acteur</a>
+                {{l}}
+                <a href="/filmographie/update/{{l.id}}">Modifier l'acteur'</a>
+                <a href="/filmographie/affiche/{{l.id}}/">Afficher l'acteur</a>
+                <a href="/filmographie/delete/{{l.id}}/">Supprimer l'acteur</a>
             </li>
         {% endfor %}
     </ol>

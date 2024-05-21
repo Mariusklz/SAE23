@@ -4,14 +4,13 @@
 
 {% block content %} 
 <div>
-    <a href="/filmographie/acteurs/">Home</a> <a href="">ajouter </a> 
-    <h1> {{Marques.nom}}</h1>
-    <p> {{marque.description}} </p>
+    <a href="/filmographie/acteurs/">Home</a> <a href="/filmographie/ajout">ajouter un acteur </a> 
+    <h1> {{films.titre}}</h1>
 
 
-    <p>Voici le film {{film.id}} avec  comme l'id : {{film.titre}}. </p>
+    <p>Voici le film {{films.id}} avec  comme l'id : {{films.titre}}. </p>
 
-    <p>Voici la liste des modèles appartenant à {{Films.titre}} : 
+    <p>Voici la liste des modèles appartenant à {{films.titre}} : 
         {% for v in liste %}
             <li> 
                 {{v}}
