@@ -4,12 +4,12 @@
 {% block content %}
 <div>
     {% if id_m != None %}
-        <h1>Veuillez ajouter une voiture : </h1>
-        <form method="post" action="/filmographie/films/traitement/{{id_m}}/">
+        <h1>Veuillez ajouter un acteur : </h1>
+        <form method="post" action="/filmographie/acteurs/traitement/{{id}}/">
     
     {% else %}
-        <h1>Mise à jour du modèle de voiture</h1>
-        <form method="post" action="/filmographie/films/updatetraitement/{{id_v}}/">
+        <h1>Mise à jour du modèle d'un acteur</h1>
+        <form method="post" action="/filmographie/acteurs/updatetraitement/{{id}}/">
     {% endif %}
         {% csrf_token %}
         {{ form.as_ul }}
