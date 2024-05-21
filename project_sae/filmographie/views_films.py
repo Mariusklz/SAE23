@@ -6,7 +6,7 @@ from . import models
 
 def index(request):
     liste = list(models.Film.objects.all())
-    return render(request, "filmographie/films/index.html" , {"liste" : liste, "id": id})
+    return render(request, "filmographie/films/index.html" , {"liste" : liste})
 
 
 def ajout(request):
@@ -20,32 +20,30 @@ def ajout(request):
 def traitement(request):
     lform = FilmForm(request.POST)
     if lform.is_valid():
-        films = lform.save()
-        return render(request,"filmographie/films/affiche.html",{"films" : films})
+        film = lform.save()
+        return render(request,"filmographie/films/affiche.html",{"film" : film})
     else:
         return render(request,"filmographie/films/ajout.html",{"form": lform})
     
 def affiche(request, id):
-    films = models.Film.objects.get(pk=id)
-    return render(request,"filmographie/films/affiche.html",{"films": films})
+    film = models.Film.objects.get(pk=id)
+    return render(request,"filmographie/films/affiche.html",{"film": film})
 
 def update(request, id):
-    films = models.Film.objects.get(pk=id)
-    form = FilmForm(films.catalogue())
+    film = models.Film.objects.get(pk=id)
+    form = FilmForm(film.catalogue())
     return render(request,"filmographie/films/ajout.html",{"form":form, "id": id})
 
 
 def delete(request, id):
-    films = models.Film.objects.get(pk=id)
-    films.delete()
-    return HttpResponseRedirect("/filmographie/films/")
-
-
+    film = models.Film.objects.get(pk=id)
+    film.delete()
+    return HttpResponseRedirect("/filmographie/film/")
 
 
 def updatetraitement(request, id):
-    films = models.Film.objects.get(pk=id)
-    lform = FilmForm(request.POST, instance=films)
+    film = models.Film.objects.get(pk=id)
+    lform = FilmForm(request.POST, instance=film)
     if lform.is_valid():
-        films = lform.save()
+        film = lform.save()
         return HttpResponseRedirect('/filmographie/')

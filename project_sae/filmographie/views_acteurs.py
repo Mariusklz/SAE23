@@ -6,7 +6,7 @@ from . import models
 
 def index(request):
     liste = list(models.Acteur.objects.all())
-    return render(request, "filmographie/acteurs/index.html" , {"liste" : liste, "id": id})
+    return render(request, "filmographie/acteurs/index.html" , {"liste" : liste})
 
 
 def ajout(request):
@@ -36,7 +36,6 @@ def update(request, id):
         form = ActeurForm(request.POST, instance=acteur)
         if form.is_valid():
             form.save()
-            # Rediriger l'utilisateur vers une autre vue ou une autre URL après la mise à jour
     else:
         form = ActeurForm(instance=acteur)
     return render(request, "filmographie/acteurs/ajout.html", {"form": form, "id": id})
