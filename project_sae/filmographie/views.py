@@ -55,14 +55,14 @@ def supprimer_categorie(request, id):
     return render(request, 'filmographie/categorie/supprimer_categorie.html', {'categorie': categorie})
 
 def modifier_personne(request, id):
-    personne = get_object_or_404(Personne, id=id)
+    personnes = get_object_or_404(Personne, id=id)
     if request.method == 'POST':
-        form = PersonneForm(request.POST, instance=personne)
+        form = PersonneForm(request.POST, instance=personnes)
         if form.is_valid():
             form.save()
             return redirect('index')
     else:
-        form = Personne(instance=personne)
+        form = Personne(instance=personnes)
     return render(request, 'filmographie/personnes/modifier_personne.html', {'form': form})
 
 def supprimer_personne(request, id):
@@ -70,4 +70,4 @@ def supprimer_personne(request, id):
     if request.method == 'POST':
         personne.delete()
         return redirect('index')
-    return render(request, 'filmographie/personnes/supprimer_filmographie.html', {'personne': personne})
+    return render(request, 'filmographie/personnes/supprimer_personne.html', {'personnes': personne})

@@ -8,14 +8,14 @@ class Categorie(models.Model):
     descriptif = models.TextField()
     
     def __str__(self):
-        return self.name
+        return self.nom, self. descriptif
 
 
 
 class Personne(models.Model):
 
     pseudo = models.CharField(max_length=100, unique=True)
-    nom = models.CharField(max_length=100, unique=True)
+    nom = models.CharField(max_length=100, unique=True)     
     prenom = models.CharField(max_length=100, unique=True)
     mail = models.EmailField(max_length=254, unique=True)
     mdp = models.CharField(max_length=100)

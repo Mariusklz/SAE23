@@ -25,11 +25,11 @@
         <!-- Liste des personnes -->
         <h2>Liste des personnes</h2>
         <ul>
-            {% for p in personnes %}
+            {% for personne in personnes %}
                 <li>
-                    {{ p.pseudo }} - Nom : {{ p.nom }} - Prénom : {{ p.prenom }} <br>  <br> - Mail : {{p.mail}} <br> - Mot de passe : {{p.mdp}} <br> - Type : {{p.type}}
-                    <a href="{% url 'modifier_personne' p.id %}">Modifier</a>
-                    <a href="{% url 'supprimer_personne' p.id %}">Supprimer</a>
+                    {{ personne.pseudo }} - Nom : {{ personne.nom }} - Prénom : {{ personne.prenom }} <br>  <br> - Mail : {{personne.mail}} <br> - Mot de passe : {{personne.mdp}} <br> - Type : {{personne.type}}
+                    <a href="{% url 'modifier_personne' personne.id %}">Modifier</a>
+                    <a href="{% url 'supprimer_personne' personne.id %}">Supprimer</a>
                 </li>
             {% endfor %}
         </ul>
