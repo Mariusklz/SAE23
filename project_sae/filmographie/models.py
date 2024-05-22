@@ -10,8 +10,6 @@ class Categorie(models.Model):
     def __str__(self):
         return self.nom, self. descriptif
 
-
-
 class Personne(models.Model):
 
     pseudo = models.CharField(max_length=100, unique=True)

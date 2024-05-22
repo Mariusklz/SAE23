@@ -12,12 +12,12 @@
 <body>
     <div class="container">
         <h1>Supprimer Boxeur</h1>
-        <p>Êtes-vous sûr de vouloir supprimer le boxeur "{{ boxeur.nom }}" ?</p>
+        <p>Êtes-vous sûr de vouloir supprimer {{ personnes.nom }} {{ personnes.prenom }} ?</p>
         <form method="post">
             {% csrf_token %}
-            <button type="submit">Oui, supprimer</button>
+            <button type="submit">Oui, supprimer.</button>
         </form>
-        <a href="{% url 'index' %}">Non, retourner à la liste</a>
+        <a href="{% url 'index_personnes' %}">Non, retourner à la liste.</a>
     </div>
 </body>
 </html>
