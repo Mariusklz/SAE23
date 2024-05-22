@@ -18,8 +18,8 @@ class Film(models.Model):
         return chaine
 
     def catalogue(self):
-        return {"Titre":self.titre, "Année de sortie":self.annee_de_sortie, "Affiche":self.affiche,
-                 "Réalisateur":self.realisateur,}
+        return {"titre":self.titre, "annee_de_sortie":self.annee_de_sortie, "affiche":self.affiche,
+                 "realisateur":self.realisateur,}
 
 class Acteur(models.Model):
     nom = models.CharField(max_length=100)
@@ -32,4 +32,4 @@ class Acteur(models.Model):
         return chaine
 
     def catalogue(self):
-        return {"Nom":self.nom, "Prénom":self.prenom, "Age":self.age, "Photos":self.photos}
+        return {"nom":self.nom, "prenom":self.prenom, "age":self.age, "photos":self.photos}

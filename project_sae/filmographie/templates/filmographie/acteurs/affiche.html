@@ -6,11 +6,12 @@
             
 
 {% block content %}   
+
 <div>
     
     <a href="/filmographie/">&nbsp;Page d'accueil</a>
-    <h1>{{acteur.nom}}</h1>
-    <p>La voiture {{Voitures.modele}} est équipée d'un moteur {{Voitures.moteur}} avec une puissance 
-        de {{Voitures.puissance}} chevaux de la marque {{Voitures.Marques}}</p>
+    <h1>{{acteur.nom}} {{acteur.prenom}}</h1>
+    <p>L'acteur {{acteur.nom}} {{acteur.prenom}} agé de {{acteur.age}}.</p>
 </div>
+
 {% endblock %}

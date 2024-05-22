@@ -8,15 +8,15 @@
     <h1> {{films.titre}}</h1>
 
 
-    <p>Voici le film {{films.id}} avec  comme l'id : {{films.titre}}. </p>
+    <p>Voici le film {{film.id}} avec  comme l'id : {{film.titre}}. </p>
 
-    <p>Voici la liste des modèles appartenant à {{films.titre}} : 
-        {% for v in liste %}
+    <p>Voici la liste des modèles appartenant à {{film.titre}} : 
+        {% for l in liste %}
             <li> 
-                {{v}}
-                <a href="/voiture/updatevoiture/{{v.id}}">Modifier le modèle</a>
-                <a href="/voiture/affichevoiture/{{v.id}}/">Afficher le modèle</a>
-                <a href="/voiture/deletevoiture/{{v.id}}/">Supprimer le modèle</a>
+                {{l}}
+                <a href="/voiture/updatevoiture/{{l.id}}">Modifier le modèle</a>
+                <a href="/voiture/affichevoiture/{{l.id}}/">Afficher le modèle</a>
+                <a href="/voiture/deletevoiture/{{l.id}}/">Supprimer le modèle</a>
             </li>
         {% endfor %}
     </p>

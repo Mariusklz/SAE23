@@ -32,13 +32,8 @@ def affiche(request, id):
 
 def update(request, id):
     acteur = models.Acteur.objects.get(pk=id)
-    if request.method == "POST":
-        form = ActeurForm(request.POST, instance=acteur)
-        if form.is_valid():
-            form.save()
-    else:
-        form = ActeurForm(instance=acteur)
-    return render(request, "filmographie/acteurs/ajout.html", {"form": form, "id": id})
+    form = ActeurForm(acteur.catalogue())
+    return render(request,"filmographie/acteurs/ajout.html",{"form":form, "id": id})
 
 
 
