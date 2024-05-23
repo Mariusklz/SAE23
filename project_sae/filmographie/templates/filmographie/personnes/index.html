@@ -13,9 +13,10 @@
     <img class="personne" src="{% static 'img/personne.jpg' %}">
     <img class="personned" src="{% static 'img/personneHomme.jpg' %}">
     <div class="container">
-        <h1>Personnes </h1>
+        <h1><u>Personnes </u></h1>
         <!-- Formulaire pour ajouter un boxeur -->
         <h2>Ajouter une personne</h2>
+        <h3><a href="{% url 'index_categorie' %}">Ajoutez une catégorie.</a></h3>
         <form method="post" action="{% url 'index_personnes' %}">
             {% csrf_token %}
             {{ personne_form.as_p }}
@@ -28,6 +29,7 @@
             {% for p in personnes %}
                 <li>
                     {{ p.pseudo }} - Nom : {{ p.nom }} - Prénom : {{ p.prenom }} <br>  <br> - Mail : {{p.mail}} <br> - Mot de passe : {{p.mdp}} <br> - Type : {{p.type}}
+                    <a href="{% url 'afficher_personne' p.id %}">Afficher</a>
                     <a href="{% url 'modifier_personne' p.id %}">Modifier</a>
                     <a href="{% url 'supprimer_personne' p.id %}">Supprimer</a>
                 </li>

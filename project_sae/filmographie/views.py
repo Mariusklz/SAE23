@@ -70,4 +70,14 @@ def supprimer_personne(request, id):
     if request.method == 'POST':
         personne.delete()
         return redirect('index_personnes')
-    return render(request, 'filmographie/personnes/supprimer_personne.html', {'personnes': personne})
+    return render(request, 'filmographie/personnes/supprimer_personne.html', {'personne': personne})
+
+def affiche_personne(request, id):
+    personne = get_object_or_404(Personne, id=id)
+    return render(request, "filmographie/personnes/affiche.html", {"personne": personne})
+
+
+def affiche_categorie(request, id):
+    categorie = get_object_or_404(Categorie, id=id)
+    return render(request, "filmographie/categorie/affiche.html", {"categorie": categorie})
+    

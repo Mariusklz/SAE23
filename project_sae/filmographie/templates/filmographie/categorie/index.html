@@ -15,6 +15,7 @@
 
         <!-- Formulaire pour ajouter une catégorie -->
         <h2>Ajouter une Catégorie</h2>
+        <h3><a href="{% url 'index_personnes' %}">Ajoutez une personne.</a></h3>
         <form method="post" action="{% url 'index_categorie' %}">
             {% csrf_token %}
             {{ categorie_form.as_p }}
@@ -27,6 +28,7 @@
             {% for categorie in categories %}
                 <li>
                     {{ categorie.nom }}
+                    <a href="{% url 'afficher_categorie' categorie.id %}">Afficher</a>
                     <a href="{% url 'modifier_categorie' categorie.id %}">Modifier</a>
                     <a href="{% url 'supprimer_categorie' categorie.id %}">Supprimer</a>
                 </li>
