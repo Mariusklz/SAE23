@@ -1,0 +1,17 @@
+{% extends 'filmographie/main.html' %}       
+
+{% block title %} {{Voitures.modele}} {% endblock %}
+
+
+            
+
+{% block content %}   
+
+<div class="container">
+    
+    <a href="/filmographie/acteurs/">&nbsp;Page d'accueil</a>
+    <h1>{{acteur.nom}} {{acteur.prenom}}</h1>
+    <p>L'acteur {{acteur.nom}} {{acteur.prenom}} agé de {{acteur.age}}.</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'filmographie/main.html' %}       
+
+{% block title %} {{Voitures.modele}} {% endblock %}
+
+
+            
+
+{% block content %}   
+
+<div class="container">
+    
+    <a href="/filmographie/commentaire/">&nbsp;Page d'accueil</a>
+    <h1>{{commentaire.note}} {{commentaire.}}</h1>
+    <p>Le commentaire à eu la note {{commentaire.note}}. Voici le commentaire : {{commentaire.commentaire}} ce commentaire a été écrit le  {{commentaire.date}}.</p>
+</div>
+
+{% endblock %}
