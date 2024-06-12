@@ -1,0 +1,27 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %} Films {% endblock %}
+
+{% block content %}
+<div class="container">
+    <body>    
+        <h1>Films</h1>
+
+        <a href="/filmographie/acteurs/"> Liste des modèles des acteurs</a>
+        <h1>Bienvenue sur la liste des FILMS</h1>
+        <p>Si vous souhaitez ajouter un film cliquer sur le bouton suivant :
+            <a href="/filmographie/ajout"> Ajouter un film</a>
+        </p>
+        <ol>
+            {% for f in liste %}
+                <li>
+                    {{f}}
+                    <a href="/filmographie/update/{{f.id}}">Modifier</a>
+                    <a href="/filmographie/affiche/{{f.id}}/">Afficher</a>
+                    <a href="/filmographie/delete/{{f.id}}/">Supprimer</a>
+                </li>
+            {% endfor %}
+        </ol>
+    </body>
+</div>
+{% endblock %}
