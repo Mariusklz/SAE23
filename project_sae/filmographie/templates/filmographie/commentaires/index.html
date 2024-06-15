@@ -1,0 +1,24 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %} Commentaires {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Bienvenue sur la liste des COMMENTAIRES</h1>
+    <h3><a href="{% url 'index' %}">Home</a></h3> 
+    <p>Si vous souhaitez ajouter un Commentaires cliquer sur le bouton suivant :
+        <a href="/commentaire/ajout"> Ajouter un commentaire</a>
+    </p>
+    <ol>
+        {% for c in liste %}
+            <li>
+                {{c}}
+                <a href="/commentaire/update/{{c.id}}/">Modifier</a>
+                <a href="/commentaire/affiche/{{c.id}}/">Afficher</a>
+                <a href="/commentaire/delete/{{c.id}}/">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ol>
+
+</div>
+{% endblock %}

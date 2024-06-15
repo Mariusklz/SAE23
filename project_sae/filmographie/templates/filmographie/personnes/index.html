@@ -1,0 +1,31 @@
+{% extends 'filmographie/main.html' %}
+
+{% block content %}
+
+<body>
+    <div class="container">
+        <h1><u>Personnes </u></h1>
+        <!-- Formulaire pour ajouter un boxeur -->
+        <h2>Ajouter une personne</h2>
+        <h3><a href="{% url 'index' %}">Home</a></h3>
+        <form method="post" action="{% url 'index_personne' %}">
+            {% csrf_token %}
+            {{ personne_form.as_p }}
+            <button type="submit" name="ajouter_personne">Sauvegarder</button>
+        </form>
+
+        <!-- Liste des personnes -->
+        <h2>Liste des personnes</h2>
+        <ul>
+            {% for p in personnes %}
+                <li>
+                    {{ p.pseudo }} - Nom : {{ p.nom }} - Prénom : {{ p.prenom }} <br>  <br> - Mail : {{p.mail}} <br> - Mot de passe : {{p.mdp}} <br> - Type : {{p.type}}
+                    <a href="{% url 'afficher_personne' p.id %}">Afficher</a>
+                    <a href="{% url 'modifier_personne' p.id %}">Modifier</a>
+                    <a href="{% url 'supprimer_personne' p.id %}">Supprimer</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+{% endblock %}

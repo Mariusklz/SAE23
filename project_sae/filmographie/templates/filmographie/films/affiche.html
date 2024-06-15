@@ -1,0 +1,26 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %} Affichage Films {% endblock %}
+
+{% block content %} 
+<div class="container">
+    <h3><a href="{% url 'index_films' %}">Page d'accueil</a></h3> 
+    <h1> {{films.titre}}</h1>
+
+
+    <p>Voici le film {{film.titre}} avec  comme l'id : {{film.id}} de catégorie {{film.categorie}} {{film.affiche}} . </p>
+    <img src="{{ film.affiche}}" alt="{{ film.titre }}">
+
+    <p>Voici la liste des modèles appartenant à {{film.titre}} : 
+        {% for f in liste %}
+            <li> 
+                {{f}}
+                <a href="/voiture/updatevoiture/{{f.id}}">Modifier le modèle</a>
+                <a href="/voiture/affichevoiture/{{f.id}}/">Afficher le modèle</a>
+                <a href="/voiture/deletevoiture/{{f.id}}/">Supprimer le modèle</a>
+            </li>
+        {% endfor %}
+    </p>
+</div>
+{% endblock %}
+

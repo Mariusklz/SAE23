@@ -1,0 +1,18 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %} Ajout d'un film {% endblock %}
+{% block content %}
+<div class="container">
+    {% if id != None %}
+        <h1>Mise à jour d'un film</h1>
+        <form method="post" enctype="multipart/form-data" action="/films/updatetraitement/{{id}}/">
+    {% else %}
+        <h1>Veuillez ajouter d'un film</h1>
+        <form method="post" action="/films/traitement/">
+    {% endif %}
+    {% csrf_token %}
+    {{ form.as_ul }}
+    <button type="submit" name="ajout_films">Ajouter</button>
+    </form>    
+</div>
+{% endblock %}

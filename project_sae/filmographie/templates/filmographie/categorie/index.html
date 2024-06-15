@@ -1,0 +1,38 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %}    <title>Personnes et Catégories</title> {% endblock %}
+
+{% block content %}
+</head>
+<body>
+
+    <div class="container">
+        <h1><u>Catégories</u></h1>
+
+        <!-- Formulaire pour ajouter une catégorie -->
+        <h2>Ajouter une Catégorie</h2>
+        <h3><a href="{% url 'index' %}">Home</a></h3>
+        <h3><a href="{% url 'index_categorie' %}">Ajoutez une personne.</a></h3>
+        <form method="post" action="{% url 'index_categorie' %}">
+            {% csrf_token %}
+            {{ categorie_form.as_p }}
+            <button type="submit" name="ajouter_categorie">Sauvegarder</button>
+        </form>
+
+        <!-- Liste des catégories -->
+        <h2>Liste des Catégories</h2>
+        <ul>
+            {% for categorie in categories %}
+                <li>
+                    {{ categorie.nom }}
+                    <a href="{% url 'afficher_categorie' categorie.id %}">Afficher</a>
+                    <a href="{% url 'modifier_categorie' categorie.id %}">Modifier</a>
+                    <a href="{% url 'supprimer_categorie' categorie.id %}">Supprimer</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+
+{% endblock %}

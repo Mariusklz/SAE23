@@ -1,0 +1,27 @@
+{% extends 'filmographie/main.html' %}
+
+{% block title %} Acteurs {% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Bienvenue sur la liste des ACTEURS</h1>
+
+    <h3><a href="{% url 'index' %}">Home</a></h3>
+    
+    <p>Si vous souhaitez ajouter un acteur cliquer sur le bouton suivant :
+        <a href="{% url 'ajout_acteurs' %}"> Ajouter un acteur</a>
+    </p>
+    <ol>
+        {% for a in liste %}
+            <li>
+                {{a}}
+                <a href="/acteurs/update/{{a.id}}/">Modifier</a>
+                <a href="/acteurs/affiche/{{a.id}}/">Afficher</a>
+                <a href="/acteurs/delete/{{a.id}}/">Supprimer</a>
+            </li>
+        {% endfor %}
+    </ol>
+
+</div>
+{% endblock %}

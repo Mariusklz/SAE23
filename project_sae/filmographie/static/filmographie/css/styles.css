@@ -1,0 +1,157 @@
+/* static/css/styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #8B0000FF; /* Fond blanc cassé */
+    color: #333333; /* Texte gris foncé */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+#clique, h3 {
+    color: #ffffff; /* Texte blanc */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+#clique {
+    padding: 20px; 
+    border-radius: 5px; 
+    text-align: center; 
+}
+
+#clique a {
+    font-size: 24px; 
+    color: #ffffff; 
+    text-decoration: none; 
+    display: block; 
+    margin: 10px 0; 
+}
+
+#clique a:hover {
+    color: #ff564a; 
+}
+
+#clique button{
+    background-color: #ff6f61; 
+    color: #ffffff; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #333333; /* Texte gris foncé */
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 30px;
+    background: #f9f9f9; /* Fond formulaire */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+form input, form select, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc; /* Bordure grise */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f0f0f0; /* Fond champs formulaire */
+    color: #333333; /* Texte gris foncé */
+}
+
+form button {
+    background-color: #ff6f61; /* Rouge clair */
+    color: #ffffff; /* Texte blanc */
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+form button:hover {
+    background-color: #ff564a; /* Rouge clair au survol */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 15px;
+    background-color: #f9f9f9; /* Fond éléments liste */
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+    color: #ff6f61; /* Rouge clair */
+}
+
+a:hover {
+    color: #ff564a; /* Rouge clair au survol */
+}
+
+img.personne {
+    position: absolute;
+    padding: 25px; 
+    left: 0;
+    top: 0;
+    height: 300px;
+}
+
+img.personned {
+    position: absolute;
+    padding: 25px; 
+    right: 0;
+    top: 0;
+    height: 300px;
+}
+
+img.cam {
+    position: absolute;
+    padding: 25px; 
+    right: 0;
+    top: 0;
+    height: 25%;
+}
+
+img.bdf{
+    position: absolute;
+    padding: 25px; 
+    left: 0;
+    top: 0;
+    height: 30%;
+}
+
