@@ -1,0 +1,70 @@
+-- Créer la base de données
+CREATE DATABASE IF NOT EXISTS filmo7;
+
+-- Utiliser la base de données
+USE filmo7;
+
+-- Créer la table filmographie_personne
+CREATE TABLE filmographie_personne (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pseudo VARCHAR(100) NOT NULL UNIQUE,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    mail VARCHAR(254) NOT NULL UNIQUE,
+    mdp VARCHAR(100) NOT NULL,
+    type ENUM('professionnel', 'amateur') NOT NULL
+);
+
+-- Insérer des données dans la table Personne
+INSERT INTO filmographie_personne (pseudo, nom, prenom, mail, mdp, type) VALUES
+    ('johndoe', 'Doe', 'John', 'johndoe@example.com', 'mdp123', 'amateur'),
+    ('janedoe', 'Doe', 'Jane', 'janedoe@example.com', 'mdp456', 'professionnel'),
+    ('peterparker', 'Parker', 'Peter', 'peterparker@example.com', 'spiderman', 'amateur'),
+    ('brucewayne', 'Wayne', 'Bruce', 'brucewayne@example.com', 'batman', 'professionnel');
+
+
+CREATE TABLE filmographie_categorie (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    descriptif TEXT
+);
+
+-- Insérer des données dans la table filmographie_categorie
+INSERT INTO filmographie_categorie (nom, descriptif) VALUES
+    ('Action', 'Films d\'action remplis de suspense et d\'aventure.'),
+    ('Comédie', 'Films humoristiques qui font rire le public.'),
+    ('Drame', 'Films sérieux et émotionnels souvent basés sur des situations réalistes.');
+
+
+-- Créer la table filmographie_film
+CREATE TABLE filmographie_film (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(255) NOT NULL,
+    annee_de_sortie INT NOT NULL,
+    affiche VARCHAR(255),
+    realisateur VARCHAR(255) NOT NULL
+);
+
+-- Insérer des données dans la table filmographie_film
+INSERT INTO filmographie_film (titre, annee_de_sortie, affiche, realisateur) VALUES
+    ('Avatar', 2009, 'avatar.jpg', 'James Cameron'),
+    ('La La Land', 2016, 'lalaland.jpg', 'Damien Chazelle'),
+    ('Forrest Gump', 1994, 'forrestgump.jpg', 'Robert Zemeckis');
+
+
+-- Créer la table filmographie_acteur
+CREATE TABLE filmographie_acteur (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    prenom VARCHAR(255) NOT NULL,
+    age INT NOT NULL,
+    photos VARCHAR(255)
+);
+
+-- Insérer des données dans la table filmographie_acteur
+INSERT INTO filmographie_acteur (nom, prenom, age, photos) VALUES
+    ('Weaver', 'Sigourney', 72, 'sigourney_weaver.jpg'),
+    ('Hanks', 'Tom', 65, 'tom_hanks.jpg'),
+    ('Stone', 'Emma', 32, 'emma_stone.jpg');
+
+
